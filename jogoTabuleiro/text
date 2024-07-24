@@ -1,0 +1,19 @@
+Exception in thread "main" java.util.NoSuchElementException
+        at java.base/java.util.Scanner.throwFor(Scanner.java:945)
+        at java.base/java.util.Scanner.next(Scanner.java:1602)
+        at java.base/java.util.Scanner.nextInt(Scanner.java:2267)
+        at java.base/java.util.Scanner.nextInt(Scanner.java:2221)
+        at jogoTabuleiro.pastaTabuleiro.Regras.retornarInicio(Regras.java:70)
+        at jogoTabuleiro.pastaTabuleiro.Regras.MoverCasas(Regras.java:44)
+        at jogoTabuleiro.pastaTabuleiro.Tabuleiro.moverJogador(Tabuleiro.java:21)
+        at jogoTabuleiro.pastaTabuleiro.Jogar.iniciarJogo(Jogar.java:85)
+        at jogoTabuleiro.pastaTabuleiro.Principal.main(Principal.java:15)
+PS C:\Users\Debora\Trabalho 1 POO> 
+
+Turno do jogador de cor VERMELHO
+Pressione ENTER para rolar os dados
+Exception in thread "main" java.util.NoSuchElementException: No line found
+        at java.base/java.util.Scanner.nextLine(Scanner.java:1660)
+        at jogoTabuleiro.pastaTabuleiro.Jogar.iniciarJogo(Jogar.java:79)
+        at jogoTabuleiro.pastaTabuleiro.Principal.main(Principal.java:16)
+PS C:\Users\Debora\Trabalho 1 POO> 
