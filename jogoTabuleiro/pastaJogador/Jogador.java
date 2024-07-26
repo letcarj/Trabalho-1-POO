@@ -10,13 +10,14 @@ public abstract class Jogador{ //nao pode ser instanciada
     private boolean skipNextRound;
 
     public Jogador(String corJogador){
-        this.setCorJogador(corJogador); // decide a cor
+
+        this.setCorJogador(corJogador); //decide a cor
         this.setPosicao(0); //começa na posição 0
         this.setNumJogadas(0); //inicia com 0 jogadas
         this.setEstaNoTab(false); // não inicia no tabuleiro
         this.setSkipNextRound(false); // não inicia pulando rodada
     
-        // this.corJogador = corJogador;
+        //this.corJogador = corJogador;
         //this.posicao= 0;
         //this.posicao = 0;
     }

@@ -5,11 +5,12 @@ import jogoTabuleiro.pastaTabuleiro.Dados;
 public class JogadorAz extends Jogador {
     private Dados jgDados;
 
-    
+
     public JogadorAz(String corJogador){
         super(corJogador);
         this.setJgDados(new Dados()); //instância da classe dados.
     }
+    
     @Override
     public void AdcJogada() {
         super.AdcJogada();

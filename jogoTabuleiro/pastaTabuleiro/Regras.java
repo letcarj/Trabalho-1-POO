@@ -1,13 +1,19 @@
 package jogoTabuleiro.pastaTabuleiro;
-import jogoTabuleiro.pastaJogador.*;
+import jogoTabuleiro.pastaJogador.Jogador;
+import jogoTabuleiro.pastaJogador.JogadorAz;
+import jogoTabuleiro.pastaJogador.JogadorN;
+import jogoTabuleiro.pastaJogador.JogadorS;
 import java.util.Random;
+//import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Scanner;
+
+
 public class Regras {
     private Random mudarTipo;
-    
+    //private Tabuleiro tabu;
     public Regras(){
         this.setMudarTipo(new Random());
+        //this.setTabu(tabu);
     }
 
     public void MoverCasas(Jogador player,ArrayList<Jogador>players){
@@ -34,7 +40,7 @@ public class Regras {
                      avancarCasas(player,players);
                 }
                 else{
-                    System.out.println("Jogador azarado da cor " + player.getCorJogador() +"aguarde a próxima rodada");
+                    System.out.println("Jogador azarado da cor " + player.getCorJogador() +" aguarde a próxima rodada");
                 }
                 break;
             
@@ -47,15 +53,41 @@ public class Regras {
             case 20:
             case 35:
                 System.out.println("Parece que você se deu mal! Troque de lugar com o jogador que está em último.");
-
+                trocarLugar(player, players);
                 break;
-                default:
+
+            default:
                 System.out.println("Aguarde a próxima rodada");
         }
     }
     
     
-    public void retornarInicio(  Jogador playerAtual,ArrayList<Jogador> players){
+   public void retornarInicio(  Jogador playerAtual,ArrayList<Jogador> players){
+        
+        
+        System.out.println("Jogadores disponíveis: ");
+    
+        for(int i = 0; i < players.size(); i++){
+            Jogador jogadores = players.get(i); 
+            //acessar um objeto jogador do arraylist
+            if( jogadores!= playerAtual){
+               System.out.println( i +" - " + jogadores.getCorJogador()); 
+            }
+        }
+        int numplayers = players.size(); // vai armazenar em numplayers o numero de jogadores
+        if(numplayers > 1){ //se for maior que 1 entra nessa condição
+        int aleat = mudarTipo.nextInt(numplayers); //aleat vai gerar um random de acordo com numplayers
+        Jogador peaoEscolhido = players.get(aleat);
+        System.out.println(peaoEscolhido);
+         if(peaoEscolhido!=playerAtual){ //não vai contar com o playerAtual, se random cair neste, a casa perde a ação
+            //na rodada e nenhum vai retornar ao inicio. ver isso dps
+            System.out.println("O jogador " +peaoEscolhido.getCorJogador()+ " retornou para o início.");
+            peaoEscolhido.setPosicao(0);
+            }
+        }                
+      }   
+    
+     /*public void retornarInicio(  Jogador playerAtual,ArrayList<Jogador> players){
         Scanner escolher = new Scanner(System.in);
          
         //para que possa ser digitado o numero do jogador escolhido.
@@ -68,10 +100,11 @@ public class Regras {
             }
         }
         int escolhido = escolher.nextInt();
-           
+        escolher.nextLine();
         if(escolhido < 0 || escolhido >= players.size()){
             System.out.println("Escolha inválida");
             escolher.next();
+
         } 
             
         Jogador peaoEscolhido = players.get(escolhido); //peaoescolhido recebe o indice que foi selecionado
@@ -82,36 +115,45 @@ public class Regras {
         
         
         escolher.close(); 
-    }
+    }*/
 
     public void avancarCasas(Jogador playerAtual,ArrayList<Jogador>players){
         playerAtual.posicaoAtual(3);
     }
 
-    public void TrocarLugar(){
 
+    public void trocarLugar(Jogador playerTroca,ArrayList<Jogador>playersTrocar){
+      //fazer metodo para trocar com o ultimo jogaodor.
+      //possivelmente vamos tentar realizar a troca pelo indice, de modo que tb inclua o tab
+    
+    
+      
+            
     }
+    
+
+   
     public void trocarTipoPlayer(Jogador player, ArrayList<Jogador> players ){
     // player para modificar o tipo e o arraylist para encontra esse player e atualizar.
   
         String corJogador = player.getCorJogador();
         Jogador jogadorAlterado = null;
-        int mTipo= mudarTipo.nextInt(3)+1; //inicia no 1.
+        int mTipo= mudarTipo.nextInt(3); //inicia no 1.
         
         //apos cair nos numeros de 1 a 3, mTipo entra no switch case
         // assim, modificando o tipo do jogador de acordo com o numero.
         switch (mTipo) {
-            case 1:
+            case 0:
                 jogadorAlterado = new JogadorAz(corJogador);
                 System.out.println("Seu tipo de jogador agora é o azarado");
                 break;
 
-            case 2:
+            case 1:
                 jogadorAlterado = new JogadorN(corJogador);
                 System.out.println("Seu tipo de jogador agora é o normal");
                 break;
                 
-            case 3:
+            case 2:
                 jogadorAlterado = new JogadorS(corJogador);
                 System.out.println("Seu tipo de jogador agora é o de sorte");
                 break;
@@ -131,6 +173,13 @@ public class Regras {
         this.mudarTipo = mudarTipo;
     }
 
+    /*public Tabuleiro getTabu() {
+        return tabu;
+    }
+
+    public void setTabu(Tabuleiro tabu) {
+        this.tabu = tabu;
+    }*/
 
     
-}
+}  

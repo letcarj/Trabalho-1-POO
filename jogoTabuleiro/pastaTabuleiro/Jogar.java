@@ -53,13 +53,13 @@ public class Jogar {
         }
     }
     
-    
 
     public void estatistica(){
-
     }
 
     public void iniciarJogo(){
+    /* O jogo tem que ter pelo menos dois jogadores de tipos diferentes, mas pode haver dois
+ou mais jogadores do mesmo tipo */
         if(this.getJogadores().size() < 2){
             System.out.println("Impossível jogar! Adicione mais jogadores");
             return; 
@@ -99,6 +99,7 @@ public class Jogar {
     }
    
 
+    
     public Tabuleiro getTab() {
         return tab;
     }
@@ -138,8 +139,5 @@ public class Jogar {
     public void setIniciarGame(boolean iniciarGame) {
         this.iniciarGame = iniciarGame;
     }
-
-    
-
-    } 
+} 
 

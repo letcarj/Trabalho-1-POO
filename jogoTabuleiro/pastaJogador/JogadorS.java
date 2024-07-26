@@ -44,7 +44,4 @@ public class JogadorS extends Jogador {
     public void setJgDados(Dados jgDados) {
         this.jgDados = jgDados;
     }
-
-    
- 
 }

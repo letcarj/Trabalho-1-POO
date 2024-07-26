@@ -5,7 +5,6 @@ import jogoTabuleiro.pastaJogador.Jogador;
 public class Tabuleiro {
     private int[] casasTab;
    
-
     public Tabuleiro(){
         this.setCasasTab(new int[40]);
     }
@@ -38,9 +37,6 @@ public class Tabuleiro {
     public void setCasasTab(int[] casasTab) {
         this.casasTab = casasTab;
     }
-
-
-   
 }
 
 

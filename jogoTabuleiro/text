@@ -17,3 +17,39 @@ Exception in thread "main" java.util.NoSuchElementException: No line found
         at jogoTabuleiro.pastaTabuleiro.Jogar.iniciarJogo(Jogar.java:79)
         at jogoTabuleiro.pastaTabuleiro.Principal.main(Principal.java:16)
 PS C:\Users\Debora\Trabalho 1 POO> 
+
+public void retornarInicio(  Jogador playerAtual,ArrayList<Jogador> players){
+        Scanner escolher = new Scanner(System.in);
+         
+        //para que possa ser digitado o numero do jogador escolhido.
+        System.out.println("Jogadores disponíveis: ");
+    
+        for(int i = 0; i < players.size(); i++){
+            Jogador jogadores = players.get(i); //acessar um objeto jogador do arraylist
+            if( jogadores!= playerAtual){
+               System.out.println( i +" - " + jogadores.getCorJogador());  
+            }
+        }
+        int escolhido = escolher.nextInt();
+           escolher.nextLine();
+        if(escolhido < 0 || escolhido >= players.size()){
+            System.out.println("Escolha inválida");
+            escolher.next();
+
+        } 
+            
+        Jogador peaoEscolhido = players.get(escolhido); //peaoescolhido recebe o indice que foi selecionado
+
+            //agora, o peaoEscolhido vai retornar para o inicio.
+        System.out.println("O jogador " +peaoEscolhido.getCorJogador()+ " retornou para o início.");
+        peaoEscolhido.setPosicao(0);
+        
+        
+        escolher.close(); 
+    }
+
+
+
+
+
+    jogoTabuleiro.pastaJogador.JogadorN@1ee890

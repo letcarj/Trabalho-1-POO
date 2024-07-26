@@ -20,8 +20,5 @@ public class Dados {
     public void setContador(Random contador) {
         this.contador = contador;
     }
-
-    
-
-    }
+}
     
